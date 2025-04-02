@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y \
     libffi-dev \
     libssl-dev \
     curl \
+    screen \
     && rm -rf /var/lib/apt/lists/*
 
 # Install uv package manager
