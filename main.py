@@ -21,7 +21,7 @@ load_dotenv(verbose=True)
 neo4j_password = os.getenv('NEO4J_PASSWORD')
 if not neo4j_password:
     raise ValueError("NEO4J_PASSWORD environment variable is not set.")
-neo4j_url = "neo4j+s://bbbea656.databases.neo4j.io:7687"
+neo4j_url = "neo4j+s://fe95208c.databases.neo4j.io:7687"
 
 
 
@@ -49,8 +49,8 @@ def ingest_via_stage(data):
             time.sleep(retry_delay)
         
     cursor = conn.cursor()
-    cursor.execute(f'USE WAREHOUSE  LOADING_WH ')
-    cursor.execute(f'USE DATABASE  UNIFIED_EVENTS_DEV ')
+    cursor.execute(f'USE WAREHOUSE  TRANSFORMING_DEV_WH ')
+    cursor.execute(f'USE DATABASE  UNIFIED_EVENTS_STAGING ')
     cursor.execute(f'USE SCHEMA  EVENTS ')
 
     with tempfile.NamedTemporaryFile(suffix='.json', delete=False, mode='w') as f:
