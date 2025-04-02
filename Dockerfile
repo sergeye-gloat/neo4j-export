@@ -23,6 +23,8 @@ RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 COPY pyproject.toml README.md ./
 COPY . .
 
+RUN /root/.local/bin/uv sync --no-cache
+
 # # Install dependencies with uv
 # RUN /root/.cargo/bin/uv pip install -r <(/root/.cargo/bin/uv pip compile pyproject.toml)
 
